@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Manish Singh — 3D Web Developer</title>
+<meta name="description" content="Manish Singh — React, JavaScript & immersive 3D web experiences.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Boot / loading gate -->
+<div id="boot">
+  <div class="boot-mark">INITIALIZING SCENE</div>
+  <div class="boot-bar"></div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo">MANISH<span>.</span>SINGH</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#vault">Vault</a>
+    <a href="#skills">Skills</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="eyebrow">React &middot; JavaScript &middot; Three.js</div>
+    <h1>Bringing <em>Pixels</em> to Life.</h1>
+    <p>High-performance web development meets immersive 3D animation. I build fast, responsive React applications integrated with robust APIs and engaging 3D interactions — move your mouse, the scene is watching.</p>
+    <div class="hero-cta">
+      <a href="#vault" class="btn btn-primary">Enter the Vault →</a>
+      <a href="#skills" class="btn btn-ghost">View Skills</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="line"></div>SCROLL</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-head">
+    <div class="eyebrow">What I Build</div>
+    <h2>Services</h2>
+    <p>From the first frame painted on screen to the last API call resolved — every layer built and owned in-house.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="num">3D · WEB</div>
+      <h3>3D Web Experiences</h3>
+      <p>Custom interactive landing pages, product configurators and immersive UI/UX built with Three.js — designed to react to the person using them, not just to sit there.</p>
+    </div>
+    <div class="service-card">
+      <div class="num">FRONT &middot; END</div>
+      <h3>React &amp; Frontend Development</h3>
+      <p>Clean, component-driven architecture built with JavaScript, HTML5 and advanced CSS/Tailwind. Fast on real networks, not just on a fibre-connected laptop.</p>
+    </div>
+    <div class="service-card">
+      <div class="num">API &middot; DATA</div>
+      <h3>API &amp; File Integration</h3>
+      <p>Connecting frontends smoothly with backend systems, third-party REST/GraphQL APIs and secure file handling — the pipeline below shows how that data actually moves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VAULT / 3D LOGIN -->
+<section id="vault">
+  <div class="section-head">
+    <div class="eyebrow">The Highlight</div>
+    <h2>Step Into the Vault</h2>
+    <p>A fully 3D login gateway. Turn the dial by typing — any credentials open it, this is a portfolio demo, not a real auth system.</p>
+  </div>
+  <div class="vault-wrap">
+    <div class="vault-stage">
+      <canvas id="vault-canvas"></canvas>
+      <div class="vault-hint" id="vaultHint">drag to look around the vault door</div>
+    </div>
+    <div class="vault-panel">
+      <h3>Access Terminal</h3>
+      <p class="muted-note">Enter any username and password — the vault dial turns as you type, and the door swings open on submit.</p>
+      <form id="vaultForm" autocomplete="off">
+        <div class="field">
+          <label for="vUser">Username</label>
+          <input id="vUser" type="text" placeholder="e.g. recruiter">
+        </div>
+        <div class="field">
+          <label for="vPass">Password</label>
+          <input id="vPass" type="password" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary vault-submit">Unlock the Vault</button>
+        <div class="vault-status" id="vaultStatus"></div>
+      </form>
+      <div class="access-granted" id="accessGranted">
+        <h4>ACCESS GRANTED</h4>
+        <p>You're in. I'm Manish Singh, a frontend developer who likes making interfaces that feel alive. Reach me directly at
+        <a href="mailto:manishsingh912885@gmail.com">manishsingh912885@gmail.com</a> — scroll on for skills and a live data-pipeline demo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-head">
+    <div class="eyebrow">Proficiency</div>
+    <h2>Skills, Floating in Space</h2>
+    <p>Click any orb to see how deep that skill goes. Drag anywhere to spin the cluster.</p>
+  </div>
+  <div id="skills-canvas-wrap">
+    <canvas id="skills-canvas"></canvas>
+    <div class="skill-tip">click an orb ↗</div>
+    <div class="skill-card" id="skillCard">
+      <h4 id="skillName">—</h4>
+      <div class="bar"><span id="skillBar"></span></div>
+      <div class="pct" id="skillPct">0%</div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section id="pipeline">
+  <div class="section-head">
+    <div class="eyebrow">API &amp; Backend</div>
+    <h2>Watch a Request Travel</h2>
+    <p>Server on the left, client on the right. Fire a request and watch the packet make the round trip.</p>
+  </div>
+  <div class="pipeline-wrap">
+    <div id="pipeline-canvas-wrap">
+      <canvas id="pipeline-canvas"></canvas>
+    </div>
+    <div class="pipeline-controls">
+      <button class="btn btn-primary" id="sendRequestBtn">Send Request →</button>
+    </div>
+    <div class="pipeline-log" id="pipelineLog">Idle — waiting for a request.</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-card">
+    <h2>Let's build something that reacts to people.</h2>
+    <div class="contact-links">
+      <a href="mailto:manishsingh912885@gmail.com">manishsingh912885@gmail.com</a>
+      <a href="#vault">→ back to the vault</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Manish Singh</div>
+  <div>Built with React concepts, Three.js &amp; a lot of patience</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
